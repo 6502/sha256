@@ -65,7 +65,7 @@ function sha256(data) {
           },
           add = data => {
               if (typeof data === "string") {
-                  data = typeof TextEncoder === "undefined" ? Buffer(data) : (new TextEncoder).encode(data);
+                  data = typeof TextEncoder === "undefined" ? Buffer.from(data) : (new TextEncoder).encode(data);
               }
               for (let i=0; i<data.length; i++) {
                   buf[bp++] = data[i];
@@ -113,7 +113,7 @@ function sha256(data) {
 // HMAC-SHA256 implementation
 function hmac_sha256(key, message) {
     if (typeof key === "string") {
-        key = typeof TextEncoder === "undefined" ? Buffer(key) : (new TextEncoder).encode(key);
+        key = typeof TextEncoder === "undefined" ? Buffer.from(key) : (new TextEncoder).encode(key);
     }
     if (key.length > 64) key = sha256(key);
     let inner = new Uint8Array(64).fill(0x36);
