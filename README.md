@@ -1,4 +1,4 @@
-# A tiny sha256 implementation
+# A tiny SHA256 implementation
 
 Written in one rage burst after finding that browsers only provide
 promises (the most absurd interface I could think of for such a job,
@@ -23,3 +23,5 @@ stapled on addition of a `.hex()` method returning a string.
 Input is expected to be a string (converted to utf-8 for hashing) or
 an `Uint8Array` object (or anything for which `.forEach` behaves in a
 similar way).
+
+As a convenience HMAC-SHA256 is also implemented
